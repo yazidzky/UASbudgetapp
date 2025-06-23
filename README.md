@@ -170,6 +170,7 @@ Aplikasi secara otomatis menampilkan halaman error untuk:
 
 > ![image](https://github.com/user-attachments/assets/b8b29e19-38d0-4530-bf0b-d82a2b7228a8)
 > ![image](https://github.com/user-attachments/assets/2b4681d8-dd37-46a5-8ab9-c563d54fcf34)
+> ![image](https://github.com/user-attachments/assets/8d3df46e-3238-4641-80ee-595941204034)
 > ![image](https://github.com/user-attachments/assets/8f0bd9d9-9d1b-4400-bff1-22961c6a7f0f)
 
 ---
