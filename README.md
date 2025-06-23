@@ -225,10 +225,3 @@ Langkah-langkah:
 
 ---
 
----
-
-## 📄 Lisensi
-
-Proyek ini berlisensi **MIT License**. Lihat detailnya di file [LICENSE](LICENSE).
-
----
