@@ -18,11 +18,6 @@
   Dibangun dengan oleh Spring Boot + Thymeleaf + H2
 </p>
 
-
-# 📝 To-Do List Web Application
-
-> A powerful and simple task management app built with Spring Boot + Thymeleaf + H2 Database
-
 ---
 
 ## 📌 Deskripsi Aplikasi
