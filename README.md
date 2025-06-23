@@ -15,7 +15,7 @@
 </p>
 <p align="center">
   <em>A lightweight, no‑frills task manager that lets you focus on <strong>getting things done</strong>.</em><br/>
-  Dibangun dengan ❤️ oleh Spring Boot + Thymeleaf + H2
+  Dibangun dengan oleh Spring Boot + Thymeleaf + H2
 </p>
 
 
