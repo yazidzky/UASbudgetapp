@@ -1,165 +1,220 @@
-<!--
-   _   _           _     _     _     _     _     _             _      
-  | | | |         | |   (_)   | |   (_)   | |   | |           | |     
-  | |_| | ___  ___| |__  _ ___| |__  _ ___| |__ | |_ _ __ ___ | | ___
-  |  _  |/ _ \/ __| '_ \| / __| '_ \| / __| '_ \| __| '__/ _ \| |/ _ \
-  | | | |  __/ (__| | | | \__ \ | | | \__ \ | | | |_| | | (_) | |  __/
-  \_| |_/\___|\___|_| |_|_|___/_| |_|_|___/_| |_|\__|_|  \___/|_|\___|
--->
 
-<h1 align="center">📝 Spring Boot To‑Do List</h1>
-<p align="center">
-  <img src="https://img.shields.io/badge/SpringBoot-3.5.0-brightgreen.svg" />
-  <img src="https://img.shields.io/badge/Thymeleaf-3.1-blue.svg" />
-  <img src="https://img.shields.io/badge/Database-H2-lightgrey.svg" />
-</p>
-<p align="center">
-  <em>A lightweight, no‑frills task manager that lets you focus on <strong>getting things done</strong>.</em><br/>
-  Dibangun dengan oleh Spring Boot + Thymeleaf + H2
-</p>
+# 💸 Personal Budget Manager
+
+> *“Take control of your finances — one transaction at a time.”*
+---
+
+## 📚 Daftar Isi
+
+1. [📘 Deskripsi Aplikasi](#-deskripsi-aplikasi)
+2. [🚀 Fitur Utama](#-fitur-utama)
+3. [🧰 Teknologi yang Digunakan](#-teknologi-yang-digunakan)
+4. [📂 Struktur Proyek](#-struktur-proyek)
+5. [💻 Persyaratan Sistem](#-persyaratan-sistem)
+6. [⚙️ Panduan Instalasi](#-panduan-instalasi)
+7. [📝 Panduan Penggunaan](#-panduan-penggunaan)
+8. [🔧 Konfigurasi](#-konfigurasi)
+9. [🧪 Testing](#-testing)
+10. [🤝 Berkontribusi](#-berkontribusi)
+11. [📄 Lisensi](#-lisensi)
 
 ---
 
-## 📌 Deskripsi Aplikasi
+## 📘 Deskripsi Aplikasi
 
-Aplikasi To-Do List ini adalah aplikasi manajemen tugas berbasis web yang dibangun menggunakan:
-
-- 🌱 **Spring Boot** sebagai backend framework
-- 🖼️ **Thymeleaf** sebagai template engine
-- 💾 **H2 Database** sebagai in-memory database
-- 💻 **HTML, CSS, JavaScript** sebagai frontend stack
-
-### 👤 Pengguna dapat:
-✅ Membuat, melihat, memperbarui, dan menghapus tugas  
-✅ Menandai tugas selesai atau belum  
-✅ Menyaring tugas berdasarkan status, prioritas, atau kata kunci  
-✅ Melihat statistik tugas secara real-time  
-✅ Memantau tugas yang jatuh tempo hari ini  
+**Personal Budget Manager** adalah aplikasi berbasis web untuk mencatat, memantau, dan menganalisis keuangan pribadimu.
+Dengan fitur pencatatan pemasukan/pengeluaran, visualisasi laporan, dan manajemen kategori, kamu bisa mengelola anggaranmu dengan mudah dan efisien.
 
 ---
 
-## ✨ Fitur Utama
+## 🚀 Fitur Utama
 
-### 📋 1. Manajemen Tugas
-- ➕ **Buat Tugas Baru**: Tambahkan judul, deskripsi, deadline, dan prioritas
-- ✅ **Tandai Selesai**: Toggle status selesai/belum selesai
-- 🗑️ **Hapus Tugas**: Hapus tugas yang tidak diperlukan
+### ✅ Manajemen Transaksi
 
-### 🔍 2. Penyaringan Tugas
-- 📚 **Semua Tugas**  
-- 🕓 **Tugas Pending**  
-- ✅ **Tugas Selesai**  
-- 🔥 **Berdasarkan Prioritas** (HIGH, MEDIUM, LOW)  
-- 🔎 **Pencarian Berdasarkan Kata Kunci**  
+* CRUD Transaksi: Tambah, lihat, edit, hapus
+* Filter berdasarkan jenis (Income/Expense) & tanggal
+* Saldo real-time
 
-### 📊 3. Statistik Tugas
-- 📌 Jumlah tugas *pending*  
-- ✅ Jumlah tugas *selesai*  
-- ⏰ Jumlah tugas yang *melewati deadline*  
-- 📅 Jumlah tugas yang *jatuh tempo hari ini*  
+### 📂 Manajemen Kategori
 
-### 🗓️ 4. Panel Tugas Hari Ini
-- Tampilkan semua tugas dengan deadline *hari ini*
+* Buat, ubah, hapus kategori
+* Tipe kategori: Income atau Expense
+
+### 📊 Laporan Keuangan
+
+* **Pie Chart**: Visualisasi pemasukan & pengeluaran per kategori
+* **Tabel Data**: Daftar transaksi berdasarkan filter
 
 ---
 
-## 🚀 Cara Menjalankan Aplikasi
+## 🧰 Teknologi yang Digunakan
 
-### 🔧 Prasyarat
-- ☕ Java JDK 11+
-- 🧰 Maven 3.6.3+
+### Backend
 
-### 📦 Langkah-langkah Instalasi
+* `Spring Boot 3.x`
+* `Spring Data JPA`
+* `Lombok`
+* `Thymeleaf`
+
+### Frontend
+
+* `Bootstrap 5`
+* `Chart.js`
+* `Font Awesome`
+
+### Database
+
+* `H2 Database` (default)
+* `MySQL` (optional untuk production)
+
+---
+
+## 📂 Struktur Proyek
+
+```
+personal-budget-manager/
+├── src/
+│   ├── main/
+│   │   ├── java/com/example/budgetapp/
+│   │   │   ├── config/
+│   │   │   ├── controller/
+│   │   │   ├── dto/
+│   │   │   ├── exception/
+│   │   │   ├── model/
+│   │   │   ├── repository/
+│   │   │   ├── service/
+│   │   │   └── BudgetAppApplication.java
+│   │   └── resources/
+│   │       ├── static/
+│   │       ├── templates/
+│   │       └── application.properties
+│   └── test/
+├── pom.xml
+└── README.md
+```
+
+---
+
+## 💻 Persyaratan Sistem
+
+| Komponen | Minimum                         |
+| -------- | ------------------------------- |
+| JDK      | Versi 17                        |
+| Maven    | Versi 3.6.3                     |
+| Browser  | Chrome / Firefox / Edge terbaru |
+| RAM      | 2GB                             |
+| Storage  | 500MB                           |
+
+---
+
+## ⚙️ Panduan Instalasi
+
+### 1️⃣ Kloning Proyek
 
 ```bash
-# 1. Clone repositori
-git clone <URL_REPOSITORY>
+git clone https://github.com/username/personal-budget-manager.git
+cd personal-budget-manager
+```
 
-# 2. Masuk ke direktori proyek
-cd nama-proyek
+### 2️⃣ Konfigurasi Database
 
-# 3. Jalankan aplikasi
+```properties
+# Default H2
+spring.datasource.url=jdbc:h2:mem:budgetdb
+spring.datasource.driverClassName=org.h2.Driver
+spring.datasource.username=sa
+spring.datasource.password=
+spring.h2.console.enabled=true
+
+# Optional MySQL
+# spring.datasource.url=jdbc:mysql://localhost:3306/budgetdb
+# spring.datasource.username=root
+# spring.datasource.password=yourpassword
+```
+
+### 3️⃣ Build & Jalankan
+
+```bash
+mvn clean install
 mvn spring-boot:run
-````
-
-🔗 Akses aplikasi melalui browser:
-
-```
-http://localhost:8080/tasks
 ```
 
-🔎 Akses H2 Console:
+### 4️⃣ Akses Aplikasi
 
+* Aplikasi: [http://localhost:8080/transactions](http://localhost:8080/transactions)
+* H2 Console: [http://localhost:8080/h2-console](http://localhost:8080/h2-console)
+
+---
+
+## 📝 Panduan Penggunaan
+
+### 🔹 Tambah Transaksi
+
+1. Klik "Add Transaction"
+2. Isi form (nama, jumlah, kategori)
+3. Klik "Save Transaction"
+
+### 🔹 Filter Transaksi
+
+1. Pilih jenis transaksi atau rentang tanggal
+2. Klik "Apply Filter"
+
+### 🔹 Kelola Kategori
+
+* Akses: `http://localhost:8080/categories`
+* Tambah/Edit/Hapus sesuai kebutuhan
+
+### 🔹 Laporan Keuangan
+
+* Akses: `http://localhost:8080/reports`
+* Lihat pie chart dan tabel laporan
+
+---
+
+## 🔧 Konfigurasi
+
+Contoh tambahan untuk `application.properties`:
+
+```properties
+# Server port
+server.port=8080
+
+# Thymeleaf
+spring.thymeleaf.cache=false
+spring.thymeleaf.prefix=classpath:/templates/
+spring.thymeleaf.suffix=.html
 ```
-http://localhost:8080/h2-console
+
+---
+
+## 🧪 Testing
+
+Jalankan testing:
+
+```bash
+mvn test
 ```
 
-* **JDBC URL**: `jdbc:h2:mem:todolistdb`
-* **Username**: `sa`
-* **Password**: *(kosong)*
+Testing mencakup:
+
+* Unit test service
+* Integration test controller
+* Validasi data
 
 ---
 
-## 📁 Struktur Kode
+## 🤝 Berkontribusi
 
-### 🖥️ Backend
+Punya ide keren? Yuk kontribusi!
+Langkah-langkah:
 
-| Folder / File                 | Deskripsi                                     |
-| ----------------------------- | --------------------------------------------- |
-| `Task.java`                   | Entitas tugas                                 |
-| `TaskRepository.java`         | Interface untuk operasi CRUD database         |
-| `TaskService.java`            | Logika bisnis aplikasi                        |
-| `TaskController.java`         | Mengatur permintaan HTTP & menghubungkan view |
-| `TaskNotFoundException.java`  | Exception jika tugas tidak ditemukan          |
-| `GlobalExceptionHandler.java` | Penanganan exception secara global            |
+1. Fork repo
+2. Buat branch (`git checkout -b fitur-baru`)
+3. Commit (`git commit -am 'Menambahkan fitur baru'`)
+4. Push (`git push origin fitur-baru`)
+5. Buat Pull Request
 
-### 🎨 Frontend
 
-| Folder / File          | Deskripsi                               |
-| ---------------------- | --------------------------------------- |
-| `templates/tasks.html` | Halaman utama tugas                     |
-| `templates/error.html` | Halaman penanganan error                |
-| `static/css/`          | Styling tampilan                        |
-| `static/js/`           | Fungsionalitas & interaktivitas halaman |
-
----
-
-## ⚙️ Konfigurasi Aplikasi
-
-Edit file `application.properties` untuk:
-
-* Mengubah **port server**
-* Mengatur **koneksi H2 database**
-* Menyesuaikan **pengaturan Thymeleaf**
-* Format **tanggal dan waktu**
-
----
-
-## 🧪 Contoh Penggunaan
-
-1. **➕ Tambahkan Tugas**
-   Isi form dan klik `Add Task`.
-
-2. **✅ Ubah Status Tugas**
-   Klik ikon lingkaran untuk toggle selesai/belum selesai.
-
-3. **🗑️ Hapus Tugas**
-   Klik ikon tong sampah pada card tugas.
-
-4. **🔍 Filter Tugas**
-   Gunakan menu filter untuk menyaring berdasarkan status atau prioritas.
-
----
-
-## ⚠️ Penanganan Error
-
-Aplikasi secara otomatis menampilkan halaman error untuk:
-
-* ❌ **404** - Tugas tidak ditemukan
-* 💥 **500** - Kesalahan server internal
-* 💡 Disediakan tombol kembali ke halaman utama
-
----
 
 ## 🖼️ Screenshot 
 
@@ -170,3 +225,10 @@ Aplikasi secara otomatis menampilkan halaman error untuk:
 
 ---
 
+---
+
+## 📄 Lisensi
+
+Proyek ini berlisensi **MIT License**. Lihat detailnya di file [LICENSE](LICENSE).
+
+---
