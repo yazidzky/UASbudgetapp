@@ -1,0 +1,12 @@
+{
+  "java.configuration.runtimes": [
+    {
+      "name": "JavaSE-22",
+      "path": "C:\\Program Files\\Java\\jdk-22",
+      "default": true
+    }
+  ],
+  "java.jdt.ls.vmargs": "-javaagent:D:\\github\\UASPPBONYOBA\\UASbudgetapp\\budgetapp\\lombok.jar -XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx2G -Xms100m -Xlog:disable",
+  "java.format.settings.url": ".vscode/java-formatter.xml",
+  
+}

@@ -19,8 +19,8 @@ public class TransactionController {
     private final TransactionService transactionService;
     private final CategoryRepository categoryRepository;
 
-    public TransactionController(TransactionService transactionService, 
-                               CategoryRepository categoryRepository) {
+    public TransactionController(TransactionService transactionService,
+            CategoryRepository categoryRepository) {
         this.transactionService = transactionService;
         this.categoryRepository = categoryRepository;
     }
@@ -30,12 +30,12 @@ public class TransactionController {
         List<Transaction> transactions = transactionService.getAllTransactions();
         BigDecimal balance = transactionService.getCurrentBalance();
         List<Category> categories = categoryRepository.findAll();
-        
+
         model.addAttribute("transactions", transactions);
         model.addAttribute("balance", balance);
         model.addAttribute("transactionDto", new TransactionDto());
         model.addAttribute("categories", categories);
-        
+
         return "transactions/list";
     }
 
@@ -50,7 +50,7 @@ public class TransactionController {
         Transaction transaction = transactionService.getTransactionById(id);
         BigDecimal balance = transactionService.getCurrentBalance();
         List<Category> categories = categoryRepository.findAll();
-        
+
         // Convert Transaction to TransactionDto
         TransactionDto transactionDto = new TransactionDto();
         transactionDto.setId(transaction.getId());
@@ -59,11 +59,11 @@ public class TransactionController {
         transactionDto.setDate(transaction.getDate());
         transactionDto.setType(transaction.getType());
         transactionDto.setCategoryId(transaction.getCategory() != null ? transaction.getCategory().getId() : null);
-        
-        model.addAttribute("transactionDto", transactionDto);  // Changed from "transaction" to "transactionDto"
+
+        model.addAttribute("transactionDto", transactionDto); // Changed from "transaction" to "transactionDto"
         model.addAttribute("balance", balance);
         model.addAttribute("categories", categories);
-        
+
         return "transactions/edit";
     }
 
@@ -81,14 +81,15 @@ public class TransactionController {
 
     @GetMapping("/filter")
     public String filterTransactions(@RequestParam(required = false) String type,
-                                    @RequestParam(required = false) String startDate,
-                                    @RequestParam(required = false) String endDate,
-                                    Model model) {
+            @RequestParam(required = false) String startDate,
+            @RequestParam(required = false) String endDate,
+            @RequestParam(required = false) Long categoryId,
+            Model model) {
         List<Transaction> transactions;
-        BigDecimal balance = transactionService.getCurrentBalance();
-        List<Category> categories = categoryRepository.findAll();
-        
-        if (type != null && !type.isEmpty()) {
+
+        if (categoryId != null) {
+            transactions = transactionService.getTransactionsByCategory(categoryId);
+        } else if (type != null && !type.isEmpty()) {
             Transaction.TransactionType transactionType = Transaction.TransactionType.valueOf(type);
             transactions = transactionService.getTransactionsByType(transactionType);
         } else if (startDate != null && endDate != null && !startDate.isEmpty() && !endDate.isEmpty()) {
@@ -98,12 +99,13 @@ public class TransactionController {
         } else {
             transactions = transactionService.getAllTransactions();
         }
-        
+
         model.addAttribute("transactions", transactions);
-        model.addAttribute("balance", balance);
+        model.addAttribute("balance", transactionService.getCurrentBalance());
         model.addAttribute("transactionDto", new TransactionDto());
-        model.addAttribute("categories", categories);
-        
+        model.addAttribute("categories", categoryRepository.findAll());
+
         return "transactions/list";
     }
+
 }

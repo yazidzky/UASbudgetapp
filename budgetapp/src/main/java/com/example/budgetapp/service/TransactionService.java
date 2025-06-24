@@ -2,9 +2,10 @@ package com.example.budgetapp.service;
 
 import com.example.budgetapp.dto.TransactionDto;
 import com.example.budgetapp.model.Transaction;
+
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
-import java.math.BigDecimal;
 import java.util.Map;
 
 public interface TransactionService {
@@ -15,9 +16,14 @@ public interface TransactionService {
     List<Transaction> getAllTransactions();
     List<Transaction> getTransactionsByDateRange(LocalDate start, LocalDate end);
     List<Transaction> getTransactionsByType(Transaction.TransactionType type);
+    List<Transaction> getTransactionsByCategory(Long categoryId);
+
     BigDecimal getCurrentBalance();
-    
-    // New methods for reports
+
+    // Laporan per kategori
     List<Map<String, Object>> getIncomeByCategory();
     List<Map<String, Object>> getExpenseByCategory();
+
+    // Filter gabungan
+    List<Transaction> filterTransactions(String type, LocalDate startDate, LocalDate endDate, Long categoryId);
 }
